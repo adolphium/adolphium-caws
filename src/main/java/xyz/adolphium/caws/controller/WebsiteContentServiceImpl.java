@@ -8,10 +8,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.logging.Logger;
 
 @Service
 public class WebsiteContentServiceImpl implements WebsiteContentService {
 
+    private Logger logger = Logger.getLogger(WebsiteContentServiceImpl.class.getName());
     @Value("${caws.website-parse.download.timeout-ms}")
     private static int WEBSITE_PARSE_DOWNLOAD_TIMEOUT_MS;
 
@@ -19,9 +21,15 @@ public class WebsiteContentServiceImpl implements WebsiteContentService {
     public boolean isContentPresent(URL url, String content) {
         try {
             return Jsoup.parse(url, WEBSITE_PARSE_DOWNLOAD_TIMEOUT_MS)
-                    .html().contains(content);
+                    .html()
+                    .contains(content);
         } catch (IOException e) {
+            logWebsiteParseException(e);
             throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE);
         }
+    }
+
+    private void logWebsiteParseException(IOException e) {
+        logger.severe("Exception while website parsing\nMessage \n"+ e.getMessage());
     }
 }
