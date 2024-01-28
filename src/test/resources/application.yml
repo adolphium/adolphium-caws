@@ -1,0 +1,10 @@
+server:
+  servlet:
+    context-path: /paws
+spring:
+  mail:
+    host: 127.0.0.1
+    port: 3025
+    username: test@adolphium.xyz
+    password: super_secret_test_password
+
