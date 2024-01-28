@@ -36,10 +36,10 @@ class MailControllerTest {
                 "subject":"Le subject",
                 "text":"Le text"}
                 """;
-        mockMvc.perform(post("/paws/notification")
+        mockMvc.perform(post("/caws/notification")
                         .content(content)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .contextPath("/paws"))
+                        .contextPath("/caws"))
                 .andExpect(status().isAccepted());
         var receivedMessages = greenMail.getReceivedMessages();
         assertThat(receivedMessages)

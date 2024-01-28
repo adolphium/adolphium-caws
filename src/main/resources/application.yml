@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /paws
+    context-path: /caws
 spring:
   mail:
     host: ${MAIL_HOST}

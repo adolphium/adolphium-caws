@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /paws
+    context-path: /caws
 spring:
   mail:
     host: 127.0.0.1
