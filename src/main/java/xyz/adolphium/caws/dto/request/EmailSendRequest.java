@@ -1,4 +1,4 @@
-package xyz.adolphium.paws.dto.request;
+package xyz.adolphium.caws.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -1,4 +1,4 @@
-package xyz.adolphium.paws.service;
+package xyz.adolphium.caws.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

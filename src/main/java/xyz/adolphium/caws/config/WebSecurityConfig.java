@@ -1,4 +1,4 @@
-package xyz.adolphium.paws.config;
+package xyz.adolphium.caws.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

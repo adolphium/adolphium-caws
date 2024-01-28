@@ -1,4 +1,4 @@
-package xyz.adolphium.paws.controller;
+package xyz.adolphium.caws.controller;
 
 import com.icegreen.greenmail.configuration.GreenMailConfiguration;
 import com.icegreen.greenmail.junit5.GreenMailExtension;
