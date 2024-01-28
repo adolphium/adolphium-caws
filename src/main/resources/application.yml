@@ -14,4 +14,7 @@ spring:
           auth: true
           starttls:
             enable: true
-
+caws:
+  website-parse:
+    download:
+      timeout-ms: 3000
