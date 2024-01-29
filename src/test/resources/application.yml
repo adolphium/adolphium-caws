@@ -8,3 +8,13 @@ spring:
     username: test@adolphium.xyz
     password: super_secret_test_password
 
+caws:
+  mail:
+    content-check-notification:
+      subject:
+        pre: "Found searched content for url:"
+      text:
+        pre: "Searched content:"
+  website-parse:
+    download:
+      timeout-ms: 3000

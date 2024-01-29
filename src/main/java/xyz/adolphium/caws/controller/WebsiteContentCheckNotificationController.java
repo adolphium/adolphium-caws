@@ -16,27 +16,26 @@
 
 package xyz.adolphium.caws.controller;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import xyz.adolphium.caws.dto.response.ContentAvailabilityResponse;
-import xyz.adolphium.caws.service.WebsiteContentService;
-
-import java.net.URL;
+import xyz.adolphium.caws.dto.request.ContentNotificationRequest;
+import xyz.adolphium.caws.service.WebsiteContentCheckNotificationService;
 
 @RestController
 @RequiredArgsConstructor
-public class WebsiteCheckController {
+public class WebsiteContentCheckNotificationController {
 
-    private final WebsiteContentService websiteContentService;
+    private final WebsiteContentCheckNotificationService notificationService;
 
-    @GetMapping("website-content-check")
-    ResponseEntity<ContentAvailabilityResponse> isContentAvailable(@RequestParam("url") @NotNull URL url,
-                                                                 @RequestParam("content") @NotBlank String content) {
-        return ResponseEntity.ok(new ContentAvailabilityResponse(websiteContentService.isContentPresent(url, content)));
+    @PostMapping("website-content-check/notification")
+    ResponseEntity<Void> notifyIfContentIsPresent(@NotNull @Valid @RequestBody ContentNotificationRequest request) {
+        notificationService.notifyIfContentIsPresent(request.contactDataDTO(), request.contentCheckDTO());
+        return ResponseEntity.accepted()
+                .build();
     }
 }

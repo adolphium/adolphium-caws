@@ -16,9 +16,12 @@
 
 package xyz.adolphium.caws.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.lang.NonNull;
 
-public record EmailSendRequest(@NotBlank String email,
-                               @NotBlank String subject,
-                               @NotBlank String text) {
+public record ContentNotificationRequest(@NotNull @Valid
+                                         ContentNotificationContactDataDTO contactDataDTO,
+                                         @NonNull @Valid
+                                         ContentCheckDTO contentCheckDTO) {
 }

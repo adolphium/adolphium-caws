@@ -17,8 +17,9 @@
 package xyz.adolphium.caws.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-public record EmailSendRequest(@NotBlank String email,
-                               @NotBlank String subject,
-                               @NotBlank String text) {
+import java.net.URL;
+
+public record ContentCheckDTO(@NotNull URL url, @NotBlank String content) {
 }

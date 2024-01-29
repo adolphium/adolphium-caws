@@ -14,11 +14,14 @@
  * limitations under the License.
  */
 
-package xyz.adolphium.caws.dto.request;
+package xyz.adolphium.caws.service;
 
-import jakarta.validation.constraints.NotBlank;
+import xyz.adolphium.caws.dto.request.ContentCheckDTO;
+import xyz.adolphium.caws.dto.request.ContentNotificationContactDataDTO;
 
-public record EmailSendRequest(@NotBlank String email,
-                               @NotBlank String subject,
-                               @NotBlank String text) {
+public interface WebsiteContentCheckNotificationService {
+
+
+    void notifyIfContentIsPresent(ContentNotificationContactDataDTO contactDataDTO,
+                                  ContentCheckDTO contentCheckDTO);
 }

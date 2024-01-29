@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package xyz.adolphium.caws.dto.request;
+package xyz.adolphium.caws.service;
 
-import jakarta.validation.constraints.NotBlank;
+import java.net.URL;
 
-public record EmailSendRequest(@NotBlank String email,
-                               @NotBlank String subject,
-                               @NotBlank String text) {
+public interface WebsiteContentService {
+
+    boolean isContentPresent(URL url, String content);
 }

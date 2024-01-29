@@ -15,6 +15,12 @@ spring:
           starttls:
             enable: true
 caws:
+  mail:
+    content-check-notification:
+      subject:
+        pre: "Found searched content for url:"
+      text:
+        pre: "Searched content:"
   website-parse:
     download:
       timeout-ms: 3000

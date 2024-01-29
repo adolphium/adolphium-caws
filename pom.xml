@@ -19,6 +19,7 @@
 		<jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
 		<springdoc-openapi-starter-webmvc-ui.version>2.3.0</springdoc-openapi-starter-webmvc-ui.version>
 		<jsoup.version>1.17.2</jsoup.version>
+        <junit-jupiter-params.version>5.10.1</junit-jupiter-params.version>
 	</properties>
 	<dependencies>
 		<dependency>
