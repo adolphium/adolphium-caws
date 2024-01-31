@@ -29,9 +29,9 @@ import java.util.logging.Logger;
 @Service
 public class WebsiteContentServiceImpl implements WebsiteContentService {
 
-    private Logger logger = Logger.getLogger(WebsiteContentServiceImpl.class.getName());
+    private final Logger logger = Logger.getLogger(WebsiteContentServiceImpl.class.getName());
     @Value("${caws.website-parse.download.timeout-ms}")
-    private static int WEBSITE_PARSE_DOWNLOAD_TIMEOUT_MS;
+    private int WEBSITE_PARSE_DOWNLOAD_TIMEOUT_MS;
 
     @Override
     public boolean isContentPresent(URL url, String content) {
@@ -46,6 +46,6 @@ public class WebsiteContentServiceImpl implements WebsiteContentService {
     }
 
     private void logWebsiteParseException(IOException e) {
-        logger.severe("Exception while website parsing\nMessage \n"+ e.getMessage());
+        logger.severe("Exception while website parsing\nMessage \n" + e.getMessage());
     }
 }
