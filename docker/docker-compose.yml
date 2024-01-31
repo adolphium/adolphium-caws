@@ -5,7 +5,7 @@ services:
     image: postgres:16-alpine3.19
     restart: always
     environment:
-      POSTGRES_DB: ${CAWS_DB_NAME:-caws}
+      POSTGRES_DB: ${CAWS_DB_NAME:-caws_db}
       POSTGRES_USER: ${CAWS_DB_USER:-caws_db_user}
       POSTGRES_PASSWORD: ${CAWS_DB_PASSWD:-caws_db_passwd}
     ports:
