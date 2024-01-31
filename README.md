@@ -1,9 +1,5 @@
 ### Requirements
 - Java 17
-- environment variables for docker-compose.yml:
-  - `POSTGRES_DB` defaults to `caws_db`
-  - `CAWS_DB_USER` defaults to `caws_db_user`
-  - `CAWS_DB_PASSWD` defaults to `caws_db_passwd`
 - environment variables for application.yml: 
   - notification sender mail configuration:
     - `MAIL_HOST` - smtp email host
@@ -14,7 +10,12 @@
     - `CAWS_DB_URL` defaults to `jdbc:postgresql://localhost:5432/caws_db`
     - `CAWS_DB_USER` defaults to `caws_db_user`
     - `CAWS_DB_PASSWD` defaults to `caws_db_passwd`
-- free port 5432, if using docker-compose.yml (configurability will be maybe added later)
+### Docker config
+- environment variables for docker-compose.yml:
+  - `POSTGRES_DB` defaults to `caws_db`
+  - `CAWS_DB_USER` defaults to `caws_db_user`
+  - `CAWS_DB_PASSWD` defaults to `caws_db_passwd`
+- for now the db port 5432 is hardcoded
 
 ### 
 * TODO input safety checks -> no unfiltered sending of email content
