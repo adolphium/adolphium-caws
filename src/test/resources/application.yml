@@ -5,9 +5,9 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog/liquibase-changelog.xml
   datasource:
-    url: ${CAWS_DB_URL:jdbc:postgresql://localhost:5433/caws_test_db}
-    username: ${CAWS_DB_USER:caws_test_db_user}
-    password: ${CAWS_DB_PASSWD:caws_test_db_passwd}
+    url: ${CAWS_TEST_DB_URL:jdbc:postgresql://localhost:5433/caws_test_db}
+    username: ${CAWS_TEST_DB_USER:caws_test_db_user}
+    password: ${CAWS_TEST_DB_PASSWD:caws_test_db_passwd}
     driverClassName: org.postgresql.Driver
   jpa:
     database: POSTGRESQL

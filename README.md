@@ -12,16 +12,21 @@
         - `CAWS_DB_USER` defaults to `caws_db_user`
         - `CAWS_DB_PASSWD` defaults to `caws_db_passwd`
     - test db connection
-        - `CAWS_DB_URL` defaults to `jdbc:postgresql://localhost:5433/caws_test_db`
-        - `CAWS_DB_USER` defaults to `caws_test_db_user`
-        - `CAWS_DB_PASSWD` defaults to `caws_test_db_passwd`
+        - `CAWS_TEST_DB_URL` defaults to `jdbc:postgresql://localhost:5433/caws_test_db`
+        - `CAWS_TEST_DB_USER` defaults to `caws_test_db_user`
+        - `CAWS_TEST_DB_PASSWD` defaults to `caws_test_db_passwd`
 
 ### Docker config
 
 - environment variables for docker-compose.yml:
-    - `POSTGRES_DB` defaults to `caws_db`
-    - `CAWS_DB_USER` defaults to `caws_db_user`
-    - `CAWS_DB_PASSWD` defaults to `caws_db_passwd`
+  - db
+      - `POSTGRES_DB` defaults to `caws_db`
+      - `CAWS_DB_USER` defaults to `caws_db_user`
+      - `CAWS_DB_PASSWD` defaults to `caws_db_passwd`
+  - test db
+    - `CAWS_TEST_DB_NAME` defaults to `caws_test_db`
+    - `CAWS_TEST_DB_USER` defaults to `caws_test_db_user`
+    - `CAWS_TEST_DB_PASSWD` defaults to `caws_test_db_passwd`
 - for now the db port 5432 is hardcoded
 
 ###  
