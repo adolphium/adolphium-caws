@@ -23,6 +23,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import xyz.adolphium.caws.service.MailService;
 import xyz.adolphium.caws.service.WebsiteContentService;
@@ -35,6 +36,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD,
+        scripts = "classpath:sql/cleanup.sql")
 class WebsiteContentCheckNotificationControllerNoEmailTest {
 
     @Autowired
@@ -64,7 +67,7 @@ class WebsiteContentCheckNotificationControllerNoEmailTest {
                    }
                  }
                 """;
-        mockMvc.perform(post("/caws/website-content-check/notification")
+        mockMvc.perform(post("/caws/website-content-check")
                         .content(content)
                         .contentType(MediaType.APPLICATION_JSON)
                         .contextPath("/caws"))

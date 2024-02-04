@@ -16,12 +16,9 @@
 
 package xyz.adolphium.caws.service;
 
-import xyz.adolphium.caws.dto.request.ContentCheckDTO;
-import xyz.adolphium.caws.dto.request.ContentNotificationContactDataDTO;
+import xyz.adolphium.caws.entity.WebsiteCheck;
 
 public interface WebsiteContentCheckNotificationService {
 
-
-    void notifyIfContentIsPresent(ContentNotificationContactDataDTO contactDataDTO,
-                                  ContentCheckDTO contentCheckDTO);
+    void notifyContentIsPresent(WebsiteCheck websiteCheck);
 }

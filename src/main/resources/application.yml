@@ -18,7 +18,7 @@ spring:
         format_sql: true
   hibernate:
     ddl-auto: validate
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
     host: ${MAIL_HOST}
     port: ${MAIL_PORT}

@@ -13,16 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package xyz.adolphium.caws.service;
 
-package xyz.adolphium.caws.dto.request;
+import xyz.adolphium.caws.dto.request.ContentNotificationRequest;
+import xyz.adolphium.caws.entity.WebsiteCheck;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Length;
+public interface WebsiteCheckSaveService {
 
-import java.net.URL;
+    WebsiteCheck create(ContentNotificationRequest request);
 
-public record ContentCheckDTO(
-        @NotNull URL url,
-        @NotBlank @Length(min = 1, max = 255) String content) {
+    void update(WebsiteCheck websiteCheck, boolean found);
 }

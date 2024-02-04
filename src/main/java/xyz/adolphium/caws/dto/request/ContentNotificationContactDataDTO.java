@@ -17,6 +17,8 @@
 package xyz.adolphium.caws.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
 
-public record ContentNotificationContactDataDTO(@NotBlank String email) {
+public record ContentNotificationContactDataDTO(
+        @NotBlank @Length(min = 1, max = 255) String email) {
 }

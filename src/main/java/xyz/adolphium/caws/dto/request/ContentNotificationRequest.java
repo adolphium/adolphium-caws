@@ -20,8 +20,9 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.lang.NonNull;
 
-public record ContentNotificationRequest(@NotNull @Valid
-                                         ContentNotificationContactDataDTO contactDataDTO,
-                                         @NonNull @Valid
-                                         ContentCheckDTO contentCheckDTO) {
+public record ContentNotificationRequest(
+        @NotNull @Valid
+        ContentNotificationContactDataDTO contactDataDTO,
+        @NonNull @Valid
+        ContentCheckDTO contentCheckDTO) {
 }

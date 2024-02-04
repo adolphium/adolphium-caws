@@ -1,6 +1,7 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    <include file="2024-01-31-create-init-schema.xml" relativeToChangelogFile="true"/>
-    <include file="2024-02-04-create-website_check-table.xml" relativeToChangelogFile="true"/>
+    <changeSet id="2024-02-04-create-website_check-table.xml" author="ptasler">
+        <sqlFile path="sql/2024-02-04-create-website_check-table.sql" relativeToChangelogFile="true"/>
+    </changeSet>
 </databaseChangeLog>

@@ -2,6 +2,23 @@ server:
   servlet:
     context-path: /caws
 spring:
+  liquibase:
+    change-log: classpath:/db/changelog/liquibase-changelog.xml
+  datasource:
+    url: ${CAWS_DB_URL:jdbc:postgresql://localhost:5433/caws_test_db}
+    username: ${CAWS_DB_USER:caws_test_db_user}
+    password: ${CAWS_DB_PASSWD:caws_test_db_passwd}
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  hibernate:
+    ddl-auto: validate
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
   mail:
     host: 127.0.0.1
     port: 3025

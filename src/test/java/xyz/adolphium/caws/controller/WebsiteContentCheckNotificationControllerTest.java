@@ -71,7 +71,7 @@ class WebsiteContentCheckNotificationControllerTest {
                    }
                  }
                 """;
-        mockMvc.perform(post("/caws/website-content-check/notification")
+        mockMvc.perform(post("/caws/website-content-check")
                         .content(content)
                         .contentType(MediaType.APPLICATION_JSON)
                         .contextPath("/caws"))

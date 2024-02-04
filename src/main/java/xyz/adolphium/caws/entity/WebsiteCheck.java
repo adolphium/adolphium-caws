@@ -14,15 +14,31 @@
  * limitations under the License.
  */
 
-package xyz.adolphium.caws.dto.request;
+package xyz.adolphium.caws.entity;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Length;
+import jakarta.persistence.*;
+import lombok.*;
 
+import java.io.Serializable;
 import java.net.URL;
+import java.time.ZonedDateTime;
 
-public record ContentCheckDTO(
-        @NotNull URL url,
-        @NotBlank @Length(min = 1, max = 255) String content) {
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name = "website_check", schema = "caws")
+@Builder
+public class WebsiteCheck extends AbstractTimestampEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private URL url;
+    private String content;
+    private Boolean found;
+    private ZonedDateTime lastCheckedDate;
+    private ZonedDateTime foundDate;
+    private String notificationEmail;
 }

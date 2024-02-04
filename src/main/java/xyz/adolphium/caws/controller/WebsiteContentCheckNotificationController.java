@@ -24,17 +24,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.adolphium.caws.dto.request.ContentNotificationRequest;
-import xyz.adolphium.caws.service.WebsiteContentCheckNotificationService;
+import xyz.adolphium.caws.service.WebsiteContentCheckService;
 
 @RestController
 @RequiredArgsConstructor
 public class WebsiteContentCheckNotificationController {
 
-    private final WebsiteContentCheckNotificationService notificationService;
+    private final WebsiteContentCheckService notificationService;
 
-    @PostMapping("website-content-check/notification")
-    ResponseEntity<Void> notifyIfContentIsPresent(@NotNull @Valid @RequestBody ContentNotificationRequest request) {
-        notificationService.notifyIfContentIsPresent(request.contactDataDTO(), request.contentCheckDTO());
+    @PostMapping("website-content-check")
+    ResponseEntity<Void> registerWebsiteContentCheck(@NotNull @Valid @RequestBody ContentNotificationRequest request) {
+        notificationService.registerWebsiteContentCheck(request);
         return ResponseEntity.accepted()
                 .build();
     }

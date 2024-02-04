@@ -19,38 +19,32 @@ package xyz.adolphium.caws.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import xyz.adolphium.caws.dto.request.ContentCheckDTO;
-import xyz.adolphium.caws.dto.request.ContentNotificationContactDataDTO;
+import xyz.adolphium.caws.entity.WebsiteCheck;
+
+import java.net.URL;
 
 @Service
 @RequiredArgsConstructor
 public class WebsiteContentCheckNotificationServiceImpl implements WebsiteContentCheckNotificationService {
 
     private final MailService mailService;
-    private final WebsiteContentService websiteContentService;
 
     @Value("${caws.mail.content-check-notification.subject.pre}")
     private String EMAIL_CONTENT_CHECK_NOTIFICATION_SUBJECT_PRE;
     @Value("${caws.mail.content-check-notification.text.pre}")
     private String EMAIL_CONTENT_CHECK_NOTIFICATION_TEXT_PRE;
 
-    @Override
-    public void notifyIfContentIsPresent(ContentNotificationContactDataDTO contactDataDTO, ContentCheckDTO contentCheckDTO) {
-        if (!websiteContentService.isContentPresent(contentCheckDTO.url(), contentCheckDTO.content())) {
-           return;
-        }
-        var subject = getContentFoundSubject(contentCheckDTO);
-        var text = getContentFoundText(contentCheckDTO);
-        mailService.sendMailTo(contactDataDTO.email(),
-                subject,
-                text);
+    public void notifyContentIsPresent(WebsiteCheck websiteCheck) {
+        var subject = getContentFoundSubject(websiteCheck.getUrl());
+        var text = getContentFoundText(websiteCheck.getContent());
+        mailService.sendMailTo(websiteCheck.getNotificationEmail(), subject, text);
     }
 
-    private String getContentFoundText(ContentCheckDTO contentCheckDTO) {
-        return EMAIL_CONTENT_CHECK_NOTIFICATION_TEXT_PRE + "\n\n" + contentCheckDTO.content();
+    private String getContentFoundText(String content) {
+        return EMAIL_CONTENT_CHECK_NOTIFICATION_TEXT_PRE + "\n\n" + content;
     }
 
-    private String getContentFoundSubject(ContentCheckDTO contentCheckDTO) {
-        return EMAIL_CONTENT_CHECK_NOTIFICATION_SUBJECT_PRE + " " + contentCheckDTO.url();
+    private String getContentFoundSubject(URL url) {
+        return EMAIL_CONTENT_CHECK_NOTIFICATION_SUBJECT_PRE + " " + url;
     }
 }

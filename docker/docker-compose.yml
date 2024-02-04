@@ -12,6 +12,16 @@ services:
       - '5432:5432'
     volumes:
       - caws_db:/var/lib/postgresql/data
+  caws-test-db:
+    container_name: caws-postgres-test-db
+    image: postgres:16-alpine3.19
+    restart: always
+    environment:
+      POSTGRES_DB: ${CAWS_TEST_DB_NAME:-caws_test_db}
+      POSTGRES_USER: ${CAWS_TEST_DB_USER:-caws_test_db_user}
+      POSTGRES_PASSWORD: ${CAWS_TEST_DB_PASSWD:-caws_test_db_passwd}
+    ports:
+      - '5433:5432'
 volumes:
   caws_db:
     driver: local
